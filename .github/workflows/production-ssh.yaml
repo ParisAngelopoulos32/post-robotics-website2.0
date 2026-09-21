@@ -54,7 +54,7 @@ jobs:
     continue-on-error: true # This might and most likely will fail if no Sentry project is set up
     steps:
       - name: Checkout code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
       - name: Create Sentry Release
