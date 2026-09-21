@@ -1,0 +1,43 @@
+version: 2
+registries:
+  npm-github:
+    type: npm-registry
+    url: https://npm.pkg.github.com
+    token: ${{secrets.GLOBAL_GITHUB_NPM_TOKEN}}
+  acf-composer:
+    type: composer-repository
+    url: https://connect.advancedcustomfields.com/
+    username: ${{secrets.GLOBAL_ACF_LICENSE_KEY}}
+    password: ${{secrets.GLOBAL_ACF_PASSWORD}} # This is just a domain placeholder, ACF requires any non-empty password
+  wpmu-composer:
+    type: composer-repository
+    url: https://wpackagist.org
+    username: ${{secrets.GLOBAL_WPMU_LICENSE_KEY}}
+    password: ${{secrets.GLOBAL_EMPTY}} # WPMU does not require a password, but dependabot needs something here which is a secret (ugh)
+  bureauzigzag-composer:
+    type: composer-repository
+    url: https://packages.bureauzigzag.dev/
+    username: thijmen
+    password: ${{secrets.GLOBAL_BUREAUZIGZAG_DEV_PASSWORD}}
+
+updates:
+  - package-ecosystem: "composer"
+    directory: "/"
+    registries: "*"
+    schedule:
+      interval: "daily"
+    commit-message:
+      prefix: "chore(deps/composer): "
+  - package-ecosystem: "npm"
+    directory: "/web/app/themes/bengel"
+    registries: "*"
+    commit-message:
+      prefix: "chore(deps/theme): "
+    schedule:
+        interval: "daily"
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    commit-message:
+      prefix: "chore(deps/gh-actions): "
+    schedule:
+        interval: "daily"

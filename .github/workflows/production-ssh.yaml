@@ -1,0 +1,70 @@
+name: "Deploy to Production"
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  deploy:
+    name: Deploy to Production Server
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check if succesful build
+      uses: "./.github/workflows/check-succesful-build.yml"
+
+    - uses: appleboy/ssh-action@v1
+      name: Pushing code to Production Server via SSH
+      env:
+        version: ${{ github.ref_name }}
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USER }}
+        key: ${{ secrets.SSH_KEY }}
+        script: |
+          cd ~/public_html;
+          
+          if [ ! -d ".git" ]; then
+                echo "Repository not found";
+                exit 1;
+          fi
+          
+          git pull origin main --ff-only || { echo 'Git pull failed' ; exit 1; };
+          composer install --no-dev --optimize-autoloader || { echo 'Composer install failed' ; exit 1; };
+          
+          cd ~/web/app/themes/bengel || { echo 'Theme directory not found' ; exit 1; };
+          printf '%s' "$NPM_AUTH" > .npmrc || { echo '.npmrc write failed' ; exit 1; };
+
+          npm install --force || { echo 'NPM install failed' ; exit 1; };
+          npm run build || { echo 'NPM build failed' ; exit 1; };
+          cd ~/public_html
+          
+          if grep -q '^VERSION=' .env; then
+            sed -i "s/^VERSION=.*/VERSION=$version/" .env;
+          else
+            echo "VERSION=$version" >> .env;
+          fi
+          
+          echo "Deployment completed successfully!";
+
+  sentry_release:
+    name: Create Sentry Release
+    runs-on: ubuntu-latest
+    needs: deploy
+    continue-on-error: true # This might and most likely will fail if no Sentry project is set up
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - name: Create Sentry Release
+        uses: getsentry/action-release@v3
+        env:
+          SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+          SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+        with:
+          environment: production
+          finalize: true
+          dist: ${{ github.run_number }}
+          release: ${{ github.ref_name }}

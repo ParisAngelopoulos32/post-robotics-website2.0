@@ -1,0 +1,4 @@
+.{componentName} {
+  background: tomato;
+  color: white;
+}

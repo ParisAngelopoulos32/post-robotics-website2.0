@@ -1,0 +1,11 @@
+{
+    "repositories": {
+        "freekattema/wp-setup": {
+            "type": "vcs",
+            "url": "https://github.com/BureauZIGZAG/wp-theme"
+        }
+    },
+    "require": {
+        "freekattema/wp-setup": "dev-master"
+    }
+}

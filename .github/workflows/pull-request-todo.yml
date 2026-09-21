@@ -1,0 +1,37 @@
+name: Pull Request Checks
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
+      - synchronize
+    paths:
+      - '**.php'
+      - '**.js'
+      - '**.ts'
+
+
+jobs:
+  check_todos:
+    name: Check for TODOs
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      issues: write
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Check for todos
+        uses: phntmxyz/pr_todo_checker@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          exclude: |
+            *.md
+            web/app/uploads/**
+            web/app/plugins/**
+            web/app/mu-plugins/**
+            web/app/themes/bengel/node_modules/**
+            web/app/themes/bengel/dist/**
+          comment_body: 'Er zijn paar TODOs gevonden in deze PR.\n{todo}\n'
+          comment_on_todo: true

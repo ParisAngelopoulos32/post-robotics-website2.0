@@ -1,0 +1,39 @@
+# Development
+.idea
+.vscode
+
+# MacOS
+.DS_Store
+
+
+# WordPress
+web/wp
+web/.htaccess
+
+# Logs
+*.log
+
+
+# Dotenv
+.env
+.env.*
+!.env.example
+
+
+# Application
+web/app/plugins/*
+!web/app/plugins/.gitignore
+web/app/mu-plugins/*/
+web/app/themes/twentytwentyfive/
+!web/app/themes/.gitignore
+web/app/upgrade
+web/app/uploads/*
+!web/app/uploads/.gitkeep
+web/app/cache/*
+
+# Composer
+/vendor
+auth.json
+
+# WP-CLI
+wp-cli.local.yml

@@ -1,0 +1,89 @@
+name: Check if theme can be built
+on:
+  push:
+    paths:
+      - "web/app/themes/bengel/**"
+      - '.github/workflows/**' # Trigger on workflow file changes as well
+
+jobs:
+  test_build_npm:
+    name: Test theme build with npm
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    strategy:
+      matrix:
+        node-version: [22, 24]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Set up NPM auth
+        uses: BengelMedia/actions-auth-files@1.0.2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          auth-type: 'npm'
+          secret-content: ${{secrets.GLOBAL_NPM_AUTHENTICATION}}
+      - name: Install dependencies
+        run: |
+          cd web/app/themes/bengel
+          npm install
+      - name: Build theme
+        run: |
+          cd web/app/themes/bengel
+          npm run build
+      - name: Verify build output
+        run: |
+          if [ ! -d "web/app/themes/bengel/dist" ]; then
+            echo "Build failed: 'dist' directory not found.";
+            exit 1;
+          fi
+          echo "Build successful: 'dist' directory exists.";
+      - name: List contents of dist directory
+        run: |
+          ls -la web/app/themes/bengel/dist
+
+  test_build_pnpm:
+    name: Test theme build with pnpm
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    strategy:
+      matrix:
+        node-version: [22, 24]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install pnpm
+        run: npm install -g pnpm
+      - name: Set up NPM auth
+        uses: BengelMedia/actions-auth-files@1.0.2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          auth-type: 'npm'
+          secret-content: ${{secrets.GLOBAL_NPM_AUTHENTICATION}}
+      - name: Install dependencies
+        run: |
+          cd web/app/themes/bengel
+          pnpm install
+      - name: Build theme
+        run: |
+          cd web/app/themes/bengel
+          pnpm build
+      - name: Verify build output
+        run: |
+          if [ ! -d "web/app/themes/bengel/dist" ]; then
+            echo "Build failed: 'dist' directory not found.";
+            exit 1;
+          fi
+          echo "Build successful: 'dist' directory exists.";
+      - name: List contents of dist directory
+        run: |
+          ls -la web/app/themes/bengel/dist
