@@ -1,0 +1,74 @@
+.Diensten {
+  @apply bg-primary-100 text-secondary;
+
+  background-image: radial-gradient(#e2e6df 1px, transparent 0);
+  background-size: 26px 26px;
+
+  .diensten-inner {
+    @apply container relative z-10 py-16 md:py-24 px-2;
+
+    h2 {
+      @apply text-secondary-600 font-bold tracking-tight;
+      font-size: clamp(28px, 3.4vw, 40px);
+    }
+  }
+
+  .diensten-text {
+    @apply text-secondary-200 leading-relaxed max-w-[600px];
+    margin-top: 22px;
+  }
+
+  .diensten-grid {
+    @apply grid grid-cols-1 md:grid-cols-3 gap-6 mt-11;
+
+    > li:last-child:nth-child(3n+1) {
+      @apply md:col-span-3 md:flex-row md:items-center md:gap-6;
+
+      .dienst-icon {
+        @apply mb-0;
+      }
+    }
+  }
+
+  .diensten-card {
+    @apply flex flex-col items-start gap-3 bg-white border border-primary-200 p-8 transition;
+    border-width: 1.5px;
+
+    &:hover {
+      @apply border-primary-700 -translate-y-1 shadow-lg;
+    }
+  }
+
+  .dienst-icon {
+    @apply flex items-center justify-center flex-none w-12 h-12 mb-1 border border-secondary-300 text-primary-700;
+  }
+
+  .dienst-titel {
+    @apply text-secondary-600 text-[17px] font-semibold;
+  }
+
+  .dienst-description {
+    @apply text-secondary-200 text-sm;
+    line-height: 1.6;
+  }
+
+  .diensten-cta {
+    @apply flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 bg-secondary-500 border border-secondary-300 p-6 sm:p-8 mt-8 transition;
+
+    &:hover {
+      @apply border-primary;
+    }
+  }
+
+  .diensten-cta-title {
+    @apply text-white text-[17px] font-semibold;
+  }
+
+  .diensten-cta-desc {
+    @apply text-secondary-100 text-sm mt-1;
+  }
+
+  .diensten-cta-icon {
+    @apply flex items-center justify-center flex-none w-12 h-12 bg-primary border border-primary text-secondary-600;
+  }
+}

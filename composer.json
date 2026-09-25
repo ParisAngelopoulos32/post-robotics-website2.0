@@ -56,7 +56,6 @@
     "roots/wp-config": "1.0.0",
     "roots/wp-password-bcrypt": ">=1.2.0",
 
-
     "wpmudev/wpmu-dev-dashboard": "@stable",
     "wpmudev/smartcrawl-wordpress-seo": "@stable",
     "wpmudev/wp-smush-pro": "@stable",
@@ -66,7 +65,6 @@
     "wpengine/advanced-custom-fields-pro": ">=6.3",
     "wordpress-plugin/wp-media-folder": "^6.2",
 
-
     "wpackagist-theme/twentytwentyfive": "^1.0",
     "wpackagist-plugin/classic-editor": ">=1.6",
     "wpackagist-plugin/post-types-order": ">=2.3",
@@ -75,16 +73,21 @@
     "wpackagist-plugin/broken-link-checker": ">=2.4",
 
     "wordpress-plugin/gravity-forms": ">=2.9",
-    "wordpress-plugin/gravity-smtp": ">=1.8",
+    "wordpress-plugin/gravitysmtp": ">=1.8",
     "wordpress-plugin/gravity-forms-recaptcha-add-on": "*",
-    "wp-cli/wp-cli-bundle": "^2.11"
+
+    "wordpress-plugin/advanced-custom-fields-pro": "@stable",
+    "wpackagist-plugin/duplicate-post": "@stable",
+    "wordpress-plugin/gravity-forms-cli": "^1.9",
+    "wpackagist-plugin/user-role-editor": "^4.66"
   },
   "require-dev": {
     "roave/security-advisories": "dev-latest",
 
     "laravel/pint": "^1.18",
 
-    "wp-cli/profile-command": "^2.1"
+    "wp-cli/profile-command": "^2.1",
+    "wp-cli/wp-cli-bundle": "^2.11"
   },
   "config": {
     "optimize-autoloader": true,

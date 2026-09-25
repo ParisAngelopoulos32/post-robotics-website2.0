@@ -14,12 +14,6 @@ importers:
       aos:
         specifier: ^2.3.4
         version: 2.3.4
-      fs-extra:
-        specifier: ^10.1.0
-        version: 10.1.0
-      prompts:
-        specifier: ^2.4.2
-        version: 2.4.2
     devDependencies:
       '@nietthijmen/wordpress-vite-plugin':
         specifier: ^1.0.3
@@ -36,6 +30,9 @@ importers:
       cssnano:
         specifier: ^5.1.14
         version: 5.1.15(postcss@8.5.8)
+      fs-extra:
+        specifier: ^10.1.0
+        version: 10.1.0
       glob:
         specifier: ^11.0.3
         version: 11.1.0
@@ -45,6 +42,9 @@ importers:
       postcss-nested:
         specifier: ^6.0.0
         version: 6.2.0(postcss@8.5.8)
+      prompts:
+        specifier: ^2.4.2
+        version: 2.4.2
       sass:
         specifier: ^1.93.2
         version: 1.98.0

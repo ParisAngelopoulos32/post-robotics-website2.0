@@ -53,7 +53,7 @@ function theme_vite_load_dev(string $hot_url) {
         $path_parts = pathinfo($file);
 
         if ($path_parts['extension'] === 'js' || $path_parts['extension'] === 'ts') {
-            wp_enqueue_script_module('main', $file_path, JS_DEPENDENCY, null, JS_LOAD_IN_FOOTER);
+            wp_enqueue_script_module('main', $file_path, JS_DEPENDENCY, null, [JS_LOAD_IN_FOOTER]);
         } elseif ($path_parts['extension'] === 'scss' || $path_parts['extension'] === 'css') {
             wp_enqueue_style('main', $file_path, [], null);
         }

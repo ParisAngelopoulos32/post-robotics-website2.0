@@ -1,0 +1,138 @@
+.formulier {
+  @apply bg-secondary-600 text-white;
+
+  .formulier-inner {
+    @apply container py-16 md:py-24 px-2;
+  }
+
+  .formulier-titel {
+    @apply text-white font-bold tracking-tight;
+    font-size: clamp(28px, 3.4vw, 40px);
+  }
+
+  .formulier-tekst {
+    @apply text-secondary-100 max-w-[520px];
+    margin-top: 1rem;
+    line-height: 1.7;
+  }
+
+  .formulier-grid {
+    @apply grid grid-cols-1 md:grid-cols-[0.85fr_1.15fr] bg-secondary-500 border border-secondary-300;
+    margin-top: 52px;
+  }
+
+  .formulier-info {
+    @apply flex flex-col border-b md:border-b-0 md:border-r border-secondary-300 py-11 px-8 md:px-10;
+  }
+
+  .formulier-info-label,
+  .formulier-form-label {
+    @apply text-secondary-100 text-xs font-semibold uppercase tracking-widest;
+  }
+
+  .formulier-row {
+    @apply flex items-center gap-4 py-[22px];
+
+    & + & {
+      @apply border-t border-secondary-300;
+    }
+  }
+
+  .formulier-row-icon {
+    @apply flex items-center justify-center flex-none w-11 h-11 border border-secondary-300 text-primary-700;
+  }
+
+  .formulier-row-label {
+    @apply block text-secondary-100 text-xs uppercase tracking-wider;
+  }
+
+  .formulier-row-value {
+    @apply block text-white text-[15.5px] font-medium no-underline;
+  }
+
+  .formulier-map {
+    @apply border border-secondary-300 overflow-hidden mt-6 w-full;
+    height: 220px;
+  }
+
+  .formulier-form {
+    @apply py-11 px-8 md:px-10;
+
+    .formulier-form-label {
+      @apply block mb-4;
+    }
+
+    .gform_fields {
+      @apply flex flex-col gap-5 list-none m-0 p-0;
+    }
+
+    .gfield {
+      @apply list-none;
+    }
+
+    .gfield_label,
+    label {
+      @apply block text-secondary-100 text-xs font-semibold uppercase tracking-wider mb-2;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+      @apply w-full bg-secondary-600 border border-secondary-300 text-white text-[15px] px-3.5 py-3 outline-none transition;
+
+      &:focus {
+        @apply border-primary;
+      }
+
+      &::placeholder {
+        @apply text-secondary-100;
+        opacity: 1;
+      }
+    }
+
+    textarea {
+      @apply resize-y;
+      min-height: 110px;
+    }
+
+    .gform_footer {
+      @apply mt-1 p-0;
+    }
+
+    .gform_button,
+    input[type="submit"] {
+      display: flex !important;
+      width: 100% !important;
+      height: auto !important;
+      align-items: center !important;
+      justify-content: center !important;
+      padding: 0.625rem 1.25rem !important;
+      font-weight: 600 !important;
+      background-color: theme('colors.primary.DEFAULT') !important;
+      color: theme('colors.black') !important;
+      border: 0 !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      appearance: none !important;
+      cursor: pointer !important;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        background-color: theme('colors.primary.700') !important;
+        color: theme('colors.white') !important;
+      }
+    }
+
+    .gfield_validation_message,
+    .validation_error {
+      @apply text-primary text-[13px] mt-1.5;
+    }
+
+
+
+    .gform_confirmation_message {
+      @apply text-white text-[15px] leading-relaxed;
+    }
+  }
+}

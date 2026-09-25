@@ -1,6 +1,6 @@
 @use 'utils/text';
-@import "pages/index";
-@import "variables/index";
+@forward "pages/index";
+@forward "variables/index";
 
 body {
   margin: 0;

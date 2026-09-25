@@ -1,0 +1,72 @@
+
+
+.Hero {
+  @apply bg-secondary-400 relative bg-cover bg-center;
+
+  @media (max-width: 767px) {
+    background-image: linear-gradient(rgba(27, 34, 43, 0.75), rgba(27, 34, 43, 0.9)), var(--hero-bg-image, none);
+  }
+
+  .hero-inner {
+    @apply relative z-10 flex flex-col md:flex-row items-center justify-between gap-10 md:gap-6 container pt-16 pb-16 md:pt-24 md:pb-24;
+  }
+
+  .hero-text {
+    @apply flex flex-col gap-4 items-start text-left w-full min-w-0;
+  }
+
+  .titel-hero {
+    @apply flex flex-col gap-8;
+  }
+
+  .titel-hero h1 {
+    @apply flex flex-col text-6xl sm:text-7xl md:text-8xl lg:text-[100px] leading-none font-bold;
+
+    .titel-white {
+      @apply text-white;
+    }
+
+    .titel-green {
+      @apply text-primary;
+    }
+  }
+
+  .subtitle {
+    @apply text-primary text-2xl;
+  }
+
+  .hero-content {
+    @apply text-white max-w-lg;
+  }
+
+  .hero-buttons {
+    @apply flex flex-wrap gap-4 mt-2;
+    .btn-secondary {
+      @apply border border-secondary-200 bg-transparent;
+    }
+  }
+
+  .machines {
+    @apply flex flex-col gap-2 border-t border-secondary-200 mt-8;
+
+    .machines-label {
+      @apply text-xs uppercase tracking-wide text-white mt-5;
+    }
+
+    .machines-list {
+      @apply flex flex-wrap gap-2;
+
+      .machine-badge {
+        @apply inline-block px-4 py-1.5 border border-primary text-primary text-sm select-none cursor-default;
+      }
+    }
+  }
+
+  .image {
+    @apply hidden md:block w-full max-w-xs sm:max-w-sm md:max-w-[280px] lg:max-w-md xl:max-w-lg flex-shrink md:flex-shrink-0 mx-auto md:mx-0;
+
+    img {
+      @apply w-full h-auto object-cover;
+    }
+  }
+}

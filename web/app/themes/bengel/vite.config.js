@@ -20,7 +20,7 @@ export default defineConfig(({mode}) => {
                     './**/*.php',
                     './*.php'
                 ],
-                valetTls: 'bengel-theme-dev.test',
+                valetTls: 'post-robotics.test',
             }),
             SassGlobImport(),
             GlobPlugin()

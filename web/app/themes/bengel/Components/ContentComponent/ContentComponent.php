@@ -29,11 +29,18 @@ final class ContentComponent extends Component {
 		$component = match ( $layout_name ) {
 			// Example component declaration
 			//'text_layout' => TextLayoutComponent::class,
+            'about_me' => AboutMe::class,
+            'about_robotics' => OverRobotics::class,
+            'diensten' => Diensten::class,
+            'ervaring' => Ervaring::class,
+            'certificaten' => Certificaten::class,
+            'form' => Formulier::class,
 			default => null,
 		};
 
 		if ( $component ) {
 			$component::display();
+            echo '<div class="section-divider"></div>';
 		}
 	}
 }

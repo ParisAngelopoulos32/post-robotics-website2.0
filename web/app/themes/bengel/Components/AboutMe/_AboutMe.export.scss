@@ -1,0 +1,84 @@
+.AboutMe {
+  @apply bg-white text-secondary;
+
+  background-image: radial-gradient(#e2e6df 1px, transparent 0);
+  background-size: 26px 26px;
+
+  .about-me-inner {
+    @apply container grid grid-cols-1 md:grid-cols-[0.8fr_1.2fr] gap-10 md:gap-16 py-16 md:py-24 px-2 items-start;
+  }
+
+  .about-me-photo {
+    @apply flex flex-col;
+  }
+
+  .about-me-image {
+    @apply relative w-full overflow-hidden border border-primary-200 bg-primary-100;
+    aspect-ratio: 2 / 3;
+
+    img {
+      @apply w-full h-full object-cover;
+      filter: contrast(105%) grayscale(20%);
+    }
+
+    .about-me-image-tint {
+      @apply absolute inset-0 bg-secondary-600;
+      opacity: 0.08;
+      mix-blend-mode: multiply;
+    }
+  }
+
+  .about-me-photo-caption {
+    @apply flex items-center justify-between gap-2.5 bg-secondary-600 px-4 py-3 -mt-px;
+
+    .about-me-photo-name {
+      @apply text-white text-[13px] font-semibold tracking-wide;
+    }
+
+    .about-me-photo-role {
+      @apply text-primary text-[11px] font-semibold uppercase tracking-widest;
+    }
+  }
+
+  .about-me-content {
+    @apply flex flex-col gap-4 text-secondary-200 leading-relaxed;
+
+    h2 {
+      @apply text-secondary-600 font-bold tracking-tight;
+      font-size: clamp(28px, 3.4vw, 40px);
+    }
+  }
+
+  .about-me-feitjes {
+    @apply grid grid-cols-1 sm:grid-cols-3 gap-3.5 mt-8;
+
+    li {
+      @apply flex flex-col items-start gap-3.5 bg-white border border-primary-200 p-5 transition;
+
+      &:hover {
+        @apply border-primary-700 -translate-y-1 shadow-lg;
+      }
+    }
+
+    li:first-child,
+    li:nth-child(2) {
+      @apply border-primary border-2 shadow-md;
+
+      .feitje-icon {
+        @apply bg-primary text-secondary-600 border-primary;
+      }
+    }
+
+    .feitje-icon {
+      @apply flex items-center justify-center flex-none w-10 h-10 border border-primary-200 text-primary-700;
+    }
+
+    .feitje-value {
+      @apply text-secondary-600 text-[22px] font-bold;
+    }
+
+    .feitje-text {
+      @apply text-secondary-200 text-[12.5px] leading-snug mt-0.5;
+    }
+  }
+}

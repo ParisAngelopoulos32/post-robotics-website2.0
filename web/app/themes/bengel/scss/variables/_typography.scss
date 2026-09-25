@@ -1,0 +1,22 @@
+a:not([class]) {
+  @apply hover:text-primary;
+  transition: all 0.2s ease-in-out;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-header font-bold;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+.the_content {
+  ul li {
+    list-style: disc inside;
+  }
+}

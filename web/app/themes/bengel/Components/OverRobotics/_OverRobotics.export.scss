@@ -1,0 +1,47 @@
+.OverRobotics {
+  @apply text-white bg-secondary-600;
+
+  background-image: radial-gradient(#37414f 1px, transparent 0);
+  background-size: 26px 26px;
+
+  .over-robotics-inner {
+    @apply container grid grid-cols-1 md:grid-cols-[1.3fr_0.9fr] gap-10 md:gap-16 py-16 md:py-24 px-2 items-start;
+  }
+
+  .over-robotics-content {
+    h2 {
+      @apply text-white font-bold tracking-tight;
+      font-size: clamp(28px, 3.4vw, 40px);
+    }
+
+    .over-robotics-text {
+      @apply text-secondary-100 leading-relaxed max-w-[520px];
+      margin-top: 22px;
+    }
+  }
+
+  .over-robotics-card {
+    @apply flex flex-col items-center gap-4 text-center bg-secondary-500 border border-secondary-300 p-9;
+  }
+
+  .over-robotics-card-logo {
+    @apply bg-white w-full p-5;
+
+    img {
+      @apply w-full h-auto mx-auto;
+      max-width: 200px;
+    }
+  }
+
+  .over-robotics-card-footer {
+    @apply w-full border-t border-secondary-300 pt-4;
+
+    .over-robotics-card-name {
+      @apply text-white text-[13px] font-semibold tracking-wide;
+    }
+
+    .over-robotics-card-established {
+      @apply text-secondary-100 text-[12.5px] mt-1;
+    }
+  }
+}

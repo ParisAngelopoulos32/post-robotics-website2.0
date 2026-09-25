@@ -134,6 +134,9 @@ Config::define('WP_POST_REVISIONS', env('WP_POST_REVISIONS') ?? true);
 // Disable script concatenation
 Config::define('CONCATENATE_SCRIPTS', false);
 
+// Google API key
+Config::define('GOOGLE_API_KEY', env('GOOGLE_API_KEY'));
+
 /**
  * Debugging Settings
  */
