@@ -5,7 +5,7 @@
   background-size: 26px 26px;
 
   .ervaring-inner {
-    @apply container py-16 md:py-24 px-2;
+    @apply container relative overflow-hidden py-16 md:py-24 px-2;
 
     h2 {
       @apply text-white font-bold tracking-tight;
@@ -19,11 +19,6 @@
 
   .ervaring-row {
     @apply flex flex-col sm:flex-row sm:items-start justify-between gap-4 p-6 sm:p-8;
-
-    & + & {
-      @apply border-primary-200;
-      border-top-width: 1.5px;
-    }
   }
 
   .ervaring-row-content {

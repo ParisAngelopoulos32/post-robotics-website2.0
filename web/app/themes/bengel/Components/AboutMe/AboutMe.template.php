@@ -5,8 +5,10 @@ $image = get_sub_field('image');
 $feitjes = get_sub_field('feitjes');
 ?>
 
-<div class="AboutMe">
+<div class="AboutMe" id="over-mij">
     <div class="about-me-inner">
+        <span class="sec-index">01</span>
+
         <?php if ($image) { ?>
             <div class="about-me-photo">
                 <div class="about-me-image">
@@ -31,20 +33,20 @@ $feitjes = get_sub_field('feitjes');
             <?php if ($content) { ?>
                 <div class="about-me-text"><?= $content ?></div>
             <?php } ?>
-
-            <?php if ($feitjes) { ?>
-                <ul class="about-me-feitjes">
-                    <?php foreach ($feitjes as $feitje) { ?>
-                        <li>
-                            <span class="feitje-icon"><?= $feitje['icon'] ?></span>
-                            <div>
-                                <div class="feitje-value"><?= $feitje['value'] ?></div>
-                                <div class="feitje-text"><?= $feitje['text'] ?></div>
-                            </div>
-                        </li>
-                    <?php } ?>
-                </ul>
-            <?php } ?>
         </div>
+
+        <?php if ($feitjes) { ?>
+            <ul class="about-me-feitjes">
+                <?php foreach ($feitjes as $feitje) { ?>
+                    <li>
+                        <span class="feitje-icon"><?= $feitje['icon'] ?></span>
+                        <div>
+                            <div class="feitje-value"><?= $feitje['value'] ?></div>
+                            <div class="feitje-text"><?= $feitje['text'] ?></div>
+                        </div>
+                    </li>
+                <?php } ?>
+            </ul>
+        <?php } ?>
     </div>
 </div>

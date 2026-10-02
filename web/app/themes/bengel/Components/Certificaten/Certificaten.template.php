@@ -5,8 +5,10 @@ $certificaten_titel = get_sub_field('certificaten_titel');
 $certificaten = get_sub_field('certificaten');
 ?>
 
-<div class="certificaten">
+<div class="certificaten" id="opleiding">
     <div class="certificaten-inner">
+        <span class="sec-index">05</span>
+
         <?php if ($titel) { ?>
             <h2><?= $titel ?></h2>
         <?php } ?>

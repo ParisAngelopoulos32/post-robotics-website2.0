@@ -10,8 +10,10 @@ $city = get_field('city', 'options');
 $country = get_field('country', 'options');
 ?>
 
-<div class="formulier">
+<div class="formulier" id="contact">
     <div class="formulier-inner">
+        <span class="sec-index sec-index--dark">06</span>
+
         <div class="formulier-header">
             <?php if ($titel) { ?>
                 <h2 class="formulier-titel"><?= $titel ?></h2>

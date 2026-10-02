@@ -6,7 +6,7 @@ $machines = get_field('machines');
 ?>
 
 
-<section class="Hero" <?php if ($candidate_image_url) { ?>style="--hero-bg-image: url('<?= esc_url($candidate_image_url) ?>');"<?php } ?>>
+<section class="Hero" id="top" <?php if ($candidate_image_url) { ?>style="--hero-bg-image: url('<?= esc_url($candidate_image_url) ?>');"<?php } ?>>
     <div class="hero-inner">
         <div class="hero-text">
             <div class="titel-hero">

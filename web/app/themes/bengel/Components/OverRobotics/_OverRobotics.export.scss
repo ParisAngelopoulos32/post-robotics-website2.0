@@ -5,7 +5,7 @@
   background-size: 26px 26px;
 
   .over-robotics-inner {
-    @apply container grid grid-cols-1 md:grid-cols-[1.3fr_0.9fr] gap-10 md:gap-16 py-16 md:py-24 px-2 items-start;
+    @apply container relative overflow-hidden grid grid-cols-1 md:grid-cols-[1.3fr_0.9fr] gap-10 md:gap-16 py-16 md:py-24 px-2 items-start;
   }
 
   .over-robotics-content {

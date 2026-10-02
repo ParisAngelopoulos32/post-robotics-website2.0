@@ -5,8 +5,10 @@ $expertise_titel = get_sub_field('expertise_titel');
 $expertise = get_sub_field('expertise');
 ?>
 
-<div class="Ervaring">
+<div class="Ervaring" id="ervaring">
     <div class="ervaring-inner">
+        <span class="sec-index sec-index--dark">04</span>
+
         <?php if ($titel) { ?>
             <h2><?= $titel ?></h2>
         <?php } ?>

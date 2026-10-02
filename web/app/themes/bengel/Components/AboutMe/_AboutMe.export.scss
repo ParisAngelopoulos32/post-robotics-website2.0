@@ -5,11 +5,23 @@
   background-size: 26px 26px;
 
   .about-me-inner {
-    @apply container grid grid-cols-1 md:grid-cols-[0.8fr_1.2fr] gap-10 md:gap-16 py-16 md:py-24 px-2 items-start;
+    @apply container relative overflow-hidden grid gap-x-4 gap-y-6 md:gap-16 py-16 md:py-24 px-2 items-start;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "content content"
+      "photo feitjes";
+
+    @media (min-width: 768px) {
+      grid-template-columns: 0.8fr 1.2fr;
+      grid-template-areas:
+        "photo content"
+        "photo feitjes";
+    }
   }
 
   .about-me-photo {
-    @apply flex flex-col;
+    @apply flex flex-col w-full mx-auto md:mx-0;
+    grid-area: photo;
   }
 
   .about-me-image {
@@ -42,6 +54,7 @@
 
   .about-me-content {
     @apply flex flex-col gap-4 text-secondary-200 leading-relaxed;
+    grid-area: content;
 
     h2 {
       @apply text-secondary-600 font-bold tracking-tight;
@@ -50,7 +63,8 @@
   }
 
   .about-me-feitjes {
-    @apply grid grid-cols-1 sm:grid-cols-3 gap-3.5 mt-8;
+    @apply grid grid-cols-1 md:grid-cols-3 gap-3.5;
+    grid-area: feitjes;
 
     li {
       @apply flex flex-col items-start gap-3.5 bg-white border border-primary-200 p-5 transition;

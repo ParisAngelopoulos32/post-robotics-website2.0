@@ -4,8 +4,10 @@ $content = get_sub_field('content');
 $diensten = get_sub_field('dienst');
 ?>
 
-<div class="Diensten">
+<div class="Diensten" id="diensten">
     <div class="diensten-inner">
+        <span class="sec-index">03</span>
+
         <?php if ($titel) { ?>
             <h2><?= $titel ?></h2>
         <?php } ?>

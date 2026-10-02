@@ -2,7 +2,7 @@
   @apply bg-secondary-600 text-white;
 
   .formulier-inner {
-    @apply container py-16 md:py-24 px-2;
+    @apply container relative overflow-hidden py-16 md:py-24 px-2;
   }
 
   .formulier-titel {
@@ -31,11 +31,7 @@
   }
 
   .formulier-row {
-    @apply flex items-center gap-4 py-[22px];
-
-    & + & {
-      @apply border-t border-secondary-300;
-    }
+    @apply flex items-center gap-4 py-[22px] border-b border-secondary-300;
   }
 
   .formulier-row-icon {

@@ -4,8 +4,10 @@ $content = get_sub_field('content');
 $image = get_sub_field('image');
 ?>
 
-<div class="OverRobotics">
+<div class="OverRobotics" id="over-ons">
     <div class="over-robotics-inner">
+        <span class="sec-index sec-index--dark">02</span>
+
         <div class="over-robotics-content">
             <?php if ($titel) { ?>
                 <h2><?= $titel ?></h2>
